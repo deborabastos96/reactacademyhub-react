@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import GlobalStyles from "./styles/GlobalStyles";
+import Heading from "./ui/Heading";
 
-const StyledApp = styled.h1`
+const StyledApp = styled.div`
   color: #888;
 `;
 
@@ -10,7 +11,7 @@ function App() {
     <>
       <GlobalStyles />
       <StyledApp>
-        <h1>Hello World</h1>
+        <Heading as="h1">Hello World</Heading>
       </StyledApp>
     </>
   );
