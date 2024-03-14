@@ -1,15 +1,18 @@
 import styled from "styled-components";
+import GlobalStyles from "./styles/GlobalStyles";
 
-const H1 = styled.h1`
-  font-size: 30px;
-  font-weight: 600;
+const StyledApp = styled.h1`
+  color: #888;
 `;
 
 function App() {
   return (
-    <div>
-      <H1>Hello World</H1>
-    </div>
+    <>
+      <GlobalStyles />
+      <StyledApp>
+        <h1>Hello World</h1>
+      </StyledApp>
+    </>
   );
 }
 
