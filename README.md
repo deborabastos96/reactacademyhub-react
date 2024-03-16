@@ -23,3 +23,4 @@ ReactAcademyHub is an online learning platform built with React for aspiring dev
 - Vite
 - React Router
 - Styled Components
+- React Icons
