@@ -7,7 +7,7 @@ import CourseRow from "./CourseRow";
 
 function CourseList() {
   const {
-    isLoading,
+    isPending,
     data: courses,
     error,
   } = useQuery({
@@ -15,7 +15,7 @@ function CourseList() {
     queryFn: getCourses,
   });
 
-  if (isLoading) return <Spinner />;
+  if (isPending) return <Spinner />;
   console.log(courses);
 
   return (
