@@ -9,7 +9,7 @@ function CourseList() {
   const {
     isPending,
     data: courses,
-    error,
+    // error,
   } = useQuery({
     queryKey: ["course"],
     queryFn: getCourses,
@@ -21,7 +21,7 @@ function CourseList() {
   return (
     <div>
       {courses.map((course) => (
-        <CourseRow key={course.id} />
+        <CourseRow key={course.id} course={course} />
       ))}
     </div>
   );
