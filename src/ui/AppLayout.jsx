@@ -7,7 +7,7 @@ import { useToggleMenu } from "../context/ToggleMenuContext";
 const StyledApp = styled.div`
   display: grid;
   grid-template-columns: ${({ $isMenuOpen }) =>
-    $isMenuOpen ? "26rem 1fr" : "8.3rem 1fr"};
+    $isMenuOpen ? "26rem 1fr" : "8.4rem 1fr"};
   grid-template-rows: auto 1fr;
   height: 100vh;
   transition: all 0.3s;

@@ -4,8 +4,9 @@ import {
   HiOutlineCalendarDays,
   HiOutlineCog6Tooth,
   HiOutlineHome,
-  HiOutlineUsers,
+  HiOutlineAcademicCap,
 } from "react-icons/hi2";
+import { useToggleMenu } from "../context/ToggleMenuContext";
 
 const NavList = styled.ul`
   display: flex;
@@ -23,7 +24,7 @@ const StyledNavLink = styled(NavLink)`
     color: var(--color-grey-600);
     font-size: 1.6rem;
     font-weight: 500;
-    padding: 1.2rem 2.4rem;
+    padding: 1.2rem;
     transition: all 0.3s;
   }
 
@@ -53,31 +54,33 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 function MainNav() {
+  const { isMenuOpen } = useToggleMenu();
+
   return (
     <nav>
       <NavList>
         <li>
           <StyledNavLink to="/dashboard">
             <HiOutlineHome />
-            <span>Home</span>
+            {isMenuOpen && <span>Home</span>}
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="/dashboard">
             <HiOutlineCalendarDays />
-            <span>Dashboard</span>
+            {isMenuOpen && <span>Dashboard</span>}
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="/courses">
-            <HiOutlineUsers />
-            <span>Courses</span>
+            <HiOutlineAcademicCap />
+            {isMenuOpen && <span>Courses</span>}
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="/settings">
             <HiOutlineCog6Tooth />
-            <span>Settings</span>
+            {isMenuOpen && <span>Settings</span>}
           </StyledNavLink>
         </li>
       </NavList>

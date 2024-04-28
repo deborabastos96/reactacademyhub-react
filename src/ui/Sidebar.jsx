@@ -6,16 +6,19 @@ import { useToggleMenu } from "../context/ToggleMenuContext";
 const StyledToggle = styled.div`
   font-size: 0;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 1.2rem;
   display: block;
+  width: 4.8rem;
   position: relative;
   z-index: 5;
+  margin-bottom: 1rem;
 
   &:hover,
   &:active,
   &.active:link,
   &.active:visited {
-    background-color: var(--color-grey-100);
+    background-color: var(--color-grey-50);
+    border-radius: var(--border-radius-sm);
   }
 
   & svg {
@@ -28,23 +31,21 @@ const StyledToggle = styled.div`
 
 const StyledSidebar = styled.aside`
   background-color: var(--color-grey-0);
-  padding: 3.2rem 2.4rem;
+  padding: 1.8rem;
   border-right: 1px solid var(--color-grey-100);
-  /* transform: ${({ $isMenuOpen }) =>
-    $isMenuOpen ? "translateX(0)" : "translateX(-100%)"}; */
 
   grid-row: 1/-1;
 `;
 
 function Sidebar() {
-  const { isMenuOpen, toggleMenu } = useToggleMenu();
+  const { toggleMenu } = useToggleMenu();
 
   return (
-    <StyledSidebar $isMenuOpen={isMenuOpen}>
+    <StyledSidebar>
       <StyledToggle onClick={toggleMenu}>
         <HiBars3 />
       </StyledToggle>
-      {isMenuOpen && <MainNav />}
+      <MainNav />
     </StyledSidebar>
   );
 }

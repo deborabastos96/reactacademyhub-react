@@ -7,7 +7,6 @@ function ToggleMenuProvider({ children }) {
 
   function toggleMenu() {
     setIsMenuOpen(() => !isMenuOpen);
-    console.log(isMenuOpen);
   }
 
   return (
