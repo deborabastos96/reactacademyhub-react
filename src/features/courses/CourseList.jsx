@@ -16,7 +16,6 @@ function CourseList() {
   });
 
   if (isPending) return <Spinner />;
-  console.log(courses);
 
   return (
     <div>

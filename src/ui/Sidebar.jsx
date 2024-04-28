@@ -30,6 +30,8 @@ const StyledSidebar = styled.aside`
   background-color: var(--color-grey-0);
   padding: 3.2rem 2.4rem;
   border-right: 1px solid var(--color-grey-100);
+  /* transform: ${({ $isMenuOpen }) =>
+    $isMenuOpen ? "translateX(0)" : "translateX(-100%)"}; */
 
   grid-row: 1/-1;
 `;
@@ -38,11 +40,11 @@ function Sidebar() {
   const { isMenuOpen, toggleMenu } = useToggleMenu();
 
   return (
-    <StyledSidebar>
+    <StyledSidebar $isMenuOpen={isMenuOpen}>
       <StyledToggle onClick={toggleMenu}>
         <HiBars3 />
       </StyledToggle>
-      <MainNav />
+      {isMenuOpen && <MainNav />}
     </StyledSidebar>
   );
 }
