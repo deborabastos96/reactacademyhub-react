@@ -11,6 +11,7 @@ import PageNotFound from "./pages/PageNotFound";
 import Login from "./pages/Login";
 import Courses from "./pages/Courses";
 import { ToggleMenuProvider } from "./context/ToggleMenuContext";
+import { DarkModeProvider } from "./context/DarkModeContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,23 +24,25 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <ToggleMenuProvider>
-      <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools initialIsOpen={false} />
-        <GlobalStyles />
-        <BrowserRouter>
-          <Routes>
-            <Route element={<AppLayout />}>
-              <Route index element={<Navigate replace to="dashboard" />} />
-              <Route path="dashboard" element={<Dashboard />} />
-              <Route path="courses" element={<Courses />} />
-              <Route path="settings" element={<Settings />} />
-            </Route>
+      <DarkModeProvider>
+        <QueryClientProvider client={queryClient}>
+          <ReactQueryDevtools initialIsOpen={false} />
+          <GlobalStyles />
+          <BrowserRouter>
+            <Routes>
+              <Route element={<AppLayout />}>
+                <Route index element={<Navigate replace to="dashboard" />} />
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="courses" element={<Courses />} />
+                <Route path="settings" element={<Settings />} />
+              </Route>
 
-            <Route path="login" element={<Login />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </QueryClientProvider>
+              <Route path="login" element={<Login />} />
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </QueryClientProvider>
+      </DarkModeProvider>
     </ToggleMenuProvider>
   );
 }
