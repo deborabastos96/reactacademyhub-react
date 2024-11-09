@@ -25,4 +25,4 @@ ReactAcademyHub is an online learning platform built with React for aspiring dev
 - React Router
 - React Icons
 - Supabase
-- React Query.
+- React Query..
